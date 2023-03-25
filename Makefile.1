@@ -1,0 +1,23 @@
+
+trove: main.o filelist.o word.o dynamArray.o
+	gcc -std=c11 -Wall -Werror main.o filelist.o word.o dynamArray.o -o trove
+
+main.o: main.c trove.h
+	gcc -std=c11 -Wall -Werror -c main.c
+
+filelist.o:filelist.c	filelist.h
+	gcc -std=c11 -Wall -Werror -c filelist.c
+
+word.o: word.c	
+	gcc -std=c11 -Wall -Werror -c word.c
+
+dynamArray.o: dynamArray.c	
+	gcc -std=c11 -Wall -Werror -c dynamArray.c
+
+clean:
+	rm *.o trove
+
+
+# invocation:'make -f Makefile.1'
+# make clean:'make -f Makefile.1 clean'
+# trove invocation:'./trove ect'
